@@ -26,7 +26,7 @@ public class CustomerService {
       .build();
 
     // Implementar proxy para verificar que el correo no sea del dominio yahoo
-    if (customerOperations.verifyEmail(customerDTO.getEmail())) {
+    if (Boolean.FALSE.equals(customerOperations.verifyEmail(customerDTO.getEmail()))) {
       throw new IllegalArgumentException("No se permiten correos del dominio yahoo.com");
     }
     return customerRepository.save(customer);
